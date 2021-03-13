@@ -35,7 +35,7 @@ body {
 
 
 #edit-selection-container {
-    background-color :#e4fbff;
+    background-color :rgb(241,243,244);
     width:100%;height:100px;
     margin : 10px 0px;
     display : flex;
@@ -52,3 +52,23 @@ body {
     align-items : center;
     text-align : center;
 }
+
+#edit-form-container {
+    width:100%;height:300px;
+    background-color: #edeef7;
+    overflow-y:scroll;
+}
+
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 15px;
+  }

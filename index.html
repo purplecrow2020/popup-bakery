@@ -17,7 +17,7 @@
             <div id="view-container">
             
                 <div id="popup-container">
-                    <img src="https://img.icons8.com/clouds/2x/star.png" style="width:60px;height:60px;margin:0px auto" >
+                    <img key="logo" src="https://img.icons8.com/clouds/2x/star.png" style="width:60px;height:60px;margin:0px auto" >
                     <p id="popup-heading" key="heading" draggable="true">Bakery</p>
                     <input id="popup-input" key="input" type="text" draggable="true">
                     <button id="popup-submit" key="submit"  draggable="true">Subscribe Me</button>
@@ -25,18 +25,17 @@
                 </div>
 
             </div>
-            <div class="edit-form-container"></div>
+            <div id="edit-form-container"></div>
             <div class="save-popup-container">
             </div>
         </div>
-        <script type="text/javascript"></script>
+        <script type="text/javascript" src="./js/index.js"></script>
         <script>
             $(document).ready(function(){
                 $('input[type=text]').draggable({cancel:false});
                 $('input[type=color]').draggable({cancel:false});
                 $('button').draggable({cancel:false});
                 $('img').draggable({cancel:false});
-
 
                 $("p").draggable();
                 $("input").draggable();
