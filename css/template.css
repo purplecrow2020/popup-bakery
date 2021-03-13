@@ -1,0 +1,9 @@
+#popup-container{
+    background-color : #7868e6;
+    border-radius: 50%;
+    width:300;height:300;
+    display : flex;
+    justify-content: center;
+    flex-direction: column; 
+    /* text-align: center; */
+}

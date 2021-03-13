@@ -19,3 +19,36 @@ body {
     width :50px;;
     height :50px;
 }
+
+
+#main { 
+    position:absolute;
+    top: 50%;left: 50%;
+    transform : translate(-50%,-50%);
+    background-color :white;
+    border :1px solid black;
+    width:600px;height:650px;
+    display : flex;
+    flex-direction: column; 
+}
+
+
+
+#edit-selection-container {
+    background-color :#e4fbff;
+    width:100%;height:100px;
+    margin : 10px 0px;
+    display : flex;
+    flex-direction: row; 
+    justify-content : center;
+}
+
+#view-container {
+    background-color :#b8b5ff;
+    width:100%;height:330px;
+    margin : 10px 0px;
+    display : flex;
+    justify-content: center;
+    align-items : center;
+    text-align : center;
+}
