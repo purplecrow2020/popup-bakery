@@ -91,22 +91,31 @@ function previewPrefrences(elementId){
 
 
 function getHtml(){
-    let elem = document.querySelector('#popup-container');
-    console.log(elem.innerHTML);
-    getPositions();
+    // html = '';
+    // let childs = document.querySelector('#popup-container').children;
+    // for(childElem of childs){
+    //     let elemId = childElem.getAttribute('id');
+    //     let [leftOffset, topOffset] =  getPositions(elemId);
+    //     let htmlElem = document.querySelector(`#${elemId}`);
+    //     htmlElem.style.position = 'absolute';
+    //     htmlElem.style.left = leftOffset;
+    //     htmlElem.style.top = topOffset;
+    // }
+    console.log(document.querySelector('#view-container').innerHTML);
 }
 
-function getPositions(){
-    let pos1 = $("#logo").position();
-    let pos2 = $("#popup-heading").position();
-    let pos3 = $("#popup-input").position();
-    let pos4 = $("#popup-submit").position();
-    let pos5 = $("#popup-info").position();
-    console.log(pos1.left,pos1.top);
-    console.log(pos2.left,pos2.top);
-    console.log(pos3.left,pos3.top);
-    console.log(pos4.left,pos4.top);
-    console.log(pos5.left,pos5.top);
+function getPositions(id){
+    let pos = $(`#${id}`).position();
+    return [pos.left, pos.top];
+    // let pos2 = $("#popup-heading").position();
+    // let pos3 = $("#popup-input").position();
+    // let pos4 = $("#popup-submit").position();
+    // let pos5 = $("#popup-info").position();
+    // console.log(pos1.left,pos1.top);
+    // console.log(pos2.left,pos2.top);
+    // console.log(pos3.left,pos3.top);
+    // console.log(pos4.left,pos4.top);
+    // console.log(pos5.left,pos5.top);
 }
 
 const tagEditableFeaturesMapping = {
