@@ -31,14 +31,32 @@
         <script type="text/javascript" src="./js/index.js"></script>
         <script>
             $(document).ready(function(){
-                $('input[type=text]').draggable({cancel:false});
-                $('input[type=color]').draggable({cancel:false});
-                $('button').draggable({cancel:false});
-                $('img').draggable({cancel:false});
+                $('input[type=text]').draggable({cancel:false,});
+                $('input[type=color]').draggable({cancel:false,});
+                $('button').draggable({cancel:false,});
+                $('img').draggable({cancel:false,});
 
-                $("p").draggable();
-                $("input").draggable();
-                $("button").draggable();
+                $("p").draggable({});
+                $("input").draggable({});
+                $("button").draggable({});
+
+
+                $('#save-btn').click(function(){
+                    let html = getHtml();
+                    $.ajax({
+                        url: 'http://127.0.0.1:8000/api/store-html',
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: '{"popup_code": "ZwewsDr","popup_html":"<h1>hello world</h1>"}',
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR){
+                                alert('true');
+                            },
+                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                                alert('false');
+                            }
+                    });
+                })
             });
         </script>
     </body>
