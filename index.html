@@ -43,18 +43,19 @@
 
                 $('#save-btn').click(function(){
                     let html = getHtml();
-                    console.log('ok')
+                    let data = '{"popup_code": "ZwewsDr","popup_html":'+JSON.stringify(html)+'}';
                     $.ajax({
-                        url: 'http://127.0.0.1:8000/api/store-html',
+                        url: 'http://128.199.19.190:8001/api/store-html',
                         contentType: 'application/json',
                         dataType: 'json',
-                        data: '{"popup_code": "ZwewsDr","popup_html":'+JSON.stringify(html)+'"}',
+                        data: data,
                         type: 'POST',
                         success: function(data, textStatus, jqXHR){
-                                alert(data);
-
+                                alert('ok');
+                                console.log(data);
                             },
                         error: function(XMLHttpRequest, textStatus, errorThrown){
+                            console.log(errorThrown);
                                 alert('false');
                             }
                     });
