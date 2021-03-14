@@ -51,11 +51,9 @@
                         data: data,
                         type: 'POST',
                         success: function(data, textStatus, jqXHR){
-                                alert('ok');
-                                console.log(data);
+                                alert(`COOL , POPUP IS SAVED , POPUP IMPORT HASH - ${data.id}`);
                             },
                         error: function(XMLHttpRequest, textStatus, errorThrown){
-                            console.log(errorThrown);
                                 alert('false');
                             }
                     });
