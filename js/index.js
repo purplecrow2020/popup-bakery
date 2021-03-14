@@ -50,8 +50,8 @@ function editThisTag(tag,elemId){
 
     const table_button_html = `
     <tr>
-        <td>
-            <button onClick="previewPrefrences('`+ elemId+`')">preview</button>
+        <td colspan="2">
+            <button class="btn" onClick="previewPrefrences('`+ elemId+`')">preview</button>
         </td>
     </tr>
 `;
