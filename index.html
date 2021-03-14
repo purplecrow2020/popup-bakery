@@ -9,24 +9,25 @@
     <body>
         <!-- <p>Lets Start Bakery</p> -->
         <div id="header">
-            <p>POP-UP BAKERY <img src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-cake-icon-png-image_515125.jpg"></p>
+            <p> POP-UP BAKERY <img src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-cake-icon-png-image_515125.jpg"></p>
         </div>
 
         <div id="main">
             <div id="edit-selection-container"></div>
             <div id="view-container">
             
-                <div id="popup-container">
-                    <img key="logo" src="https://img.icons8.com/clouds/2x/star.png" style="width:60px;height:60px;margin:0px auto" >
+                <div id="popup-container" style="box-shadow:inset 0px 0px 0px 10px #7868e6 ,inset 0px 0px 0px 12px white;">
+                    <img id="logo" key="logo" src="https://img.icons8.com/clouds/2x/star.png" style="width:60px;height:60px;margin:0px auto" >
                     <p id="popup-heading" key="heading" draggable="true">Bakery</p>
-                    <input id="popup-input" key="input" type="text" draggable="true">
-                    <button id="popup-submit" key="submit"  draggable="true">Subscribe Me</button>
+                    <input id="popup-input" key="input" type="text" style="outline-width: 0;width: 200px;margin: 0px auto;height:40px;" draggable="true">
+                    <button id="popup-submit" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;" draggable="true">Subscribe Me</button>
                     <p id="popup-info" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
                 </div>
 
             </div>
             <div id="edit-form-container"></div>
             <div class="save-popup-container">
+                <button id="save-btn" onclick="getHtml()">SAVE</button>
             </div>
         </div>
         <script type="text/javascript" src="./js/index.js"></script>
@@ -43,5 +44,4 @@
             });
         </script>
     </body>
-
 </html>

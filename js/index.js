@@ -75,12 +75,9 @@ function previewPrefrences(elementId){
     const element = document.querySelector(`#${elementId}`);
     for(let i = 0; i < table.length;i++){
         let current_value = table[i].value;
-        console.log(current_value);
-        console.log(current_value);
         let default_value = table[i].getAttribute('value');
         if(current_value != default_value){
             let property = table[i].getAttribute('name');
-            console.log(property);
             if(featureJSMethodMapping[property] == 'style'){
                 element.style[property] = current_value;
             }else{
@@ -92,6 +89,25 @@ function previewPrefrences(elementId){
 
 }
 
+
+function getHtml(){
+    let elem = document.querySelector('#popup-container');
+    console.log(elem.innerHTML);
+    getPositions();
+}
+
+function getPositions(){
+    let pos1 = $("#logo").position();
+    let pos2 = $("#popup-heading").position();
+    let pos3 = $("#popup-input").position();
+    let pos4 = $("#popup-submit").position();
+    let pos5 = $("#popup-info").position();
+    console.log(pos1.left,pos1.top);
+    console.log(pos2.left,pos2.top);
+    console.log(pos3.left,pos3.top);
+    console.log(pos4.left,pos4.top);
+    console.log(pos5.left,pos5.top);
+}
 
 const tagEditableFeaturesMapping = {
     p : ['textColor','text','fontSize'],
@@ -120,6 +136,7 @@ const featureJSMethodMapping = {
     'text' : 'innerText' ,
     'font-size': 'style',
     'color' : 'style',
+    'backgroundColor': 'style',
     'background-color': 'style',
     'input-length' : 'size',
     'size' : 'size',
@@ -128,3 +145,5 @@ const featureJSMethodMapping = {
     'height' : 'style',
     'borderRadius' : 'style'
 }
+
+
