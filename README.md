@@ -7,6 +7,7 @@
 * get a template
 * select elements
 * change editable properties
+* preview changes first
 * save edited popup template
 * use via import in any website :fire:
 
