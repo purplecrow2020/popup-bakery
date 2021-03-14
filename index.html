@@ -15,7 +15,7 @@
         <div id="main">
             <div id="edit-selection-container"></div>
             <div id="view-container">
-                <div id="popup-container" style="background-color:#7868e6;border-radius: 50%; width:250px;height:250px;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px #7868e6 ,inset 0px 0px 0px 12px white;">
+                <div id="popup-container" style="background-color:#7868e6;border-radius: 50%; width:300px;height:300px;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px #7868e6 ,inset 0px 0px 0px 12px white;">
                     <img id="logo" key="logo" src="https://img.icons8.com/clouds/2x/star.png" style="width:60px;height:60px;margin:0px auto" >
                     <p id="popup-heading" key="heading" draggable="true">Bakery</p>
                     <input id="popup-input" key="input" type="text" style="outline-width: 0;width: 200px;margin: 0px auto;height:40px;" draggable="true">
@@ -43,14 +43,16 @@
 
                 $('#save-btn').click(function(){
                     let html = getHtml();
+                    console.log('ok')
                     $.ajax({
                         url: 'http://127.0.0.1:8000/api/store-html',
                         contentType: 'application/json',
                         dataType: 'json',
-                        data: '{"popup_code": "ZwewsDr","popup_html":"<h1>hello world</h1>"}',
+                        data: '{"popup_code": "ZwewsDr","popup_html":'+JSON.stringify(html)+'"}',
                         type: 'POST',
                         success: function(data, textStatus, jqXHR){
-                                alert('true');
+                                alert(data);
+
                             },
                         error: function(XMLHttpRequest, textStatus, errorThrown){
                                 alert('false');
