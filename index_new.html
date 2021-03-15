@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/main_new.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+
+    <body>
+
+        <div id="workspace">
+            <div id="element-viewer">
+               <div class="collapsible"></div>
+               <div class="content"></div>
+            </div>
+            <div id="popup-container">
+                <div id="popup-container-header"> 
+                    POPUP - PREVIEWER
+                </div>
+            
+                <div id="popup-html-container" style="padding:20px;">
+                    
+                    
+                    
+                    <div id="popup" style="background-color:rgb(216,103,96);border-radius:100%;width:500px;height:500px;text-align:center;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px rgb(216,103,96) ,inset 0px 0px 0px 12px white;margin: 0px auto;">
+                        <div id="stars" display="inline-block;">
+                            <span key="star2" class="fa fa-star" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star1" class="fa fa-star" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star3" class="fa fa-star" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                        </div>
+                        <p id="popup-heading" style="margin:20px 0px;color:white;font-weight:700;" key="heading" draggable="true">Bakery</p>
+                        <input id="popup-input" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
+                        <button id="popup-submit" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:white;font-weight:700;" draggable="true">Subscribe Me</button>
+                        <p id="popup-info" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
+                    </div>
+
+
+                    <a href="#" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>Edit</span></a>
+
+                </div>
+
+            </div>
+            <div id="editor-panel"></div>
+        </div>
+        <script src="./js/index_new.js"></script>
+    </body>
+</html>
