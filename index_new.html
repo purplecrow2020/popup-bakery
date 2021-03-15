@@ -36,7 +36,7 @@
                     </div>
 
 
-                    <a href="#" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>Edit</span></a>
+                    <a href="#" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>SAVE</span></a>
 
                 </div>
 
@@ -44,5 +44,19 @@
             <div id="editor-panel"></div>
         </div>
         <script src="./js/index_new.js"></script>
+        <script>
+             $(document).ready(function(){
+                $('input[type=text]').draggable({cancel:false,});
+                $('input[type=color]').draggable({cancel:false,});
+                $('button').draggable({cancel:false,});
+                $('img').draggable({cancel:false,});
+                $('span').draggable({cancel:false,});
+
+
+                $("p").draggable({});
+                $("input").draggable({});
+                $("button").draggable({});
+             });
+        </script>
     </body>
 </html>
