@@ -201,7 +201,7 @@ function copyScriptData(){
 }
 
 function updateScriptData(id){
-    let x = `<script type="text/javascript" id="poptin-popup" popup-code="`+id+`" src="./js/library_new.js"></script>`;
+    let x = `<script type="text/javascript" id="poptin-popup" popup-code="`+id+`" src="https://firebasestorage.googleapis.com/v0/b/fir-login-b2ff3.appspot.com/o/library.js?alt=media&token=69d9b678-1a95-44ee-af66-4f3bdc53710c"></script>`;
     document.querySelector('#script-data').innerText=x;
 }
 
