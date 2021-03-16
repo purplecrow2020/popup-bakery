@@ -22,15 +22,15 @@
                 <div id="popup-html-container" style="padding:20px;">
                                 
                     <div id="popup" class="popup-element" category="basic settings" key="popup" style="background-color:rgb(216,103,96);border-radius:100%;width:500px;height:500px;text-align:center;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px rgb(216,103,96) ,inset 0px 0px 0px 12px white;margin: 0px auto;">
-                        <div id="stars" display="inline-block;">
-                            <span key="star2" class="fa fa-star popup-element" category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
-                            <span key="star1" class="fa fa-star popup-element" category="image elements" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
-                            <span key="star3" class="fa fa-star popup-element"  category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                        <div id="stars" display="inline-block;" class="move">
+                            <span key="star2" class="fa fa-star popup-element move" category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star1" class="fa fa-star popup-element move" category="image elements" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star3" class="fa fa-star popup-element move"  category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
                         </div>
-                        <p id="popup-heading" class="popup-element" category="text elements" style="margin:20px 0px;color:white;font-weight:700;" key="heading" draggable="true">Bakery</p>
-                        <input id="popup-input" class="popup-element" category="input elements" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
-                        <button id="popup-submit"  class="popup-element" category="button elements" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:white;font-weight:700;" draggable="true">Subscribe Me</button>
-                        <p id="popup-info" class="popup-element" category="text elements" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
+                        <p id="popup-heading" class="popup-element move" category="text elements" style="margin:20px 0px;color:white;font-weight:700;" key="heading" draggable="true">Bakery</p>
+                        <input id="popup-input" class="popup-element move" category="input elements" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
+                        <button id="popup-submit"  class="popup-element move" category="button elements" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:white;font-weight:700;" draggable="true">Subscribe Me</button>
+                        <p id="popup-info" class="popup-element move" category="text elements" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
                     </div>
     
                 </div>
@@ -76,7 +76,7 @@
                 $("p").draggable({});
                 $("input").draggable({});
                 $("button").draggable({});
-                
+
                 $('#modal').click(function(){
                     $('#modal').fadeOut('fast');
                 });

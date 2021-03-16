@@ -105,6 +105,9 @@ body {
 }
 
 
+.move {
+    cursor: move;
+}
 
 /* Mixins */
 /* bg shortcodes */
