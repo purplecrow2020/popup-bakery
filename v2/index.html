@@ -1,0 +1,118 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    </head>
+
+    <body>
+        <div id="header">
+            <p> POP-UP BAKERY <img src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-cake-icon-png-image_515125.jpg"></p>
+        </div>
+        <div id="workspace">
+            <div id="element-viewer">
+            </div>
+            <div id="popup-container">
+                <div id="popup-container-header"> 
+                    POPUP - VIEWER
+                </div>
+            
+                <div id="popup-html-container" style="padding:20px;">
+                                
+                    <div id="popup" class="popup-element" category="basic settings" key="popup" style="background-color:rgb(216,103,96);border-radius:100%;width:500px;height:500px;text-align:center;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px rgb(216,103,96) ,inset 0px 0px 0px 12px white;margin: 0px auto;">
+                        <div id="stars" display="inline-block;" class="move">
+                            <span id="star1" key="star1" class="fa fa-star popup-element move" category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span id="star2" key="star2" class="fa fa-star popup-element move" category="image elements" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span id="star3" key="star3" class="fa fa-star popup-element move"  category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                        </div>
+                        <p id="popup-heading" class="popup-element move" category="text elements" style="margin:20px 0px;color:rgba(255, 255, 255);font-weight:700;font-size:20px;" key="heading" draggable="true">Bakery</p>
+                        <input id="popup-input" class="popup-element move" category="input elements" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
+                        <button id="popup-submit"  class="popup-element move" category="button elements" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:rgb(255, 255, 255);font-weight:700;font-size:13px;" draggable="true">Subscribe Me</button>
+                        <p id="popup-info" class="popup-element move" category="text elements" key="info"  draggable="true" style="font-size:17px;">Do Subscribe, to get latest updates</p>
+                    </div>
+    
+                </div>
+                <a href="#" id="save-button" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-save"></i>SAVE</span></a>
+                <a href="#" id="reset-button" class="fancy-button pop-onhover bg-gradient3" onclick="resetHtml()"><span><i class="fa fa-undo"></i>RESET</span></a>
+            </div>
+            <div id="editor-panel">
+                <div id="popup-container-header"> 
+                    EDIT - PROPERTIES
+                </div>
+            </div>
+
+        </div>
+
+
+        <div id="modal">
+        
+            <div id="modal-content">
+                <div id="cross"><span class="fa fa-times"></span></div>
+                <div id="data" style="margin-top:40px;font-size:20px;">
+                    <strong>Congrats</strong> , Popup Design Saved , use the JS to import in your website
+                    <p id="script-data" style="box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;padding:10px;border-radius:10px;background:white;">
+                       wait its loading.........
+                    </p>
+                    <p id="copy-data" style="float:right;" onclick="copyScriptData();">
+                        COPY <span class="fa fa-copy" style="font-size: 30px;"></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        
+        <script src="./js/index.js"></script>
+        <script>
+             $(document).ready(function(){
+                localStorage.setItem('initHtml',JSON.stringify(getHtml()));
+                $('input[type=text]').draggable({cancel:false,});
+                $('input[type=color]').draggable({cancel:false,});
+                $('button').draggable({cancel:false,});
+                $('img').draggable({cancel:false,});
+                $('span').draggable({cancel:false,});
+                $("p").draggable({});
+                $("input").draggable({});
+                $("button").draggable({});
+
+                $('#modal').click(function(){
+                    $('#modal').fadeOut('fast');
+                    document.getElementById('script-data').innerText ='wait its loading.........';
+                });
+
+                $('#cross').click(function(){
+                    console.log('assdasdasd');
+                    $('#modal').fadeOut('fast');
+                    console.log(document.getElementById('script-data'));
+                    document.getElementById('script-data').innerText ='wait its loading.........';
+                    $('#script-data').text('ssdsd');
+                });
+
+                $('#save-button').click(function(){
+                    $('#modal').fadeIn('fast');
+                    let html = getHtml();
+                    let data = '{"popup_code": "ZwewsDr","popup_html":'+JSON.stringify(html)+'}';
+                    $.ajax({
+                        url: 'http://128.199.19.190:8001/api/store-html',
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: data,
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR){
+                            updateScriptData(data.id);
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                                alert('false');
+                            }
+                    });
+                });
+             });
+            
+             document.getElementById("data").addEventListener('click',function(e){
+                e.stopPropagation();
+            });
+        </script>
+    </body>
+</html>

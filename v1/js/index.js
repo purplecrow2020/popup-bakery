@@ -98,6 +98,8 @@ function getHtml(){
 }
 
 
+
+
 const tagEditableFeaturesMapping = {
     p : ['textColor','text','fontSize'],
     input : ['size','placeholderText','width','height','borderRadius'],
