@@ -7,9 +7,7 @@ for (let popupElement of popupElements) {
         elementCategories.push(popupElement.getAttribute('category')); 
     }
     popupElement.addEventListener('click',function(e){
-        console.log('helllllll');
         e.stopPropagation();
-        console.log(e.target.getAttribute('key'));
         editThisTag(e.target.tagName.toLowerCase(),e.target.getAttribute('id'));
     })
 
@@ -28,7 +26,6 @@ for (let popupElement of popupElements) {
 generateEditElementsViewer();
 
 function selectThisElementForEditView(key){
-    console.log(key);
     let editElements = document.querySelectorAll('.edit-view-elements');
     let els = document.getElementById("popup-html-container").querySelector("[key='"+key+"']");
     let tag = els.tagName.toLowerCase();
@@ -74,7 +71,6 @@ const collapsibleElements = document.getElementsByClassName('collapsible');
 for (let collapsibleElement of collapsibleElements) {
     collapsibleElement.addEventListener('click',function(){
         this.classList.toggle("active");
-        console.log(this.querySelector('.collapsible-content-indicator'));   
         let content = this.nextElementSibling;
         if (content.style.display === "block") {
             content.style.display = "none";
@@ -92,7 +88,6 @@ for (let collapsibleElement of collapsibleElements) {
 
 
 function editThisTag(tag,elemId){
-    console.log(tag,elemId);
     const options = getSupportedEditableProperties(tag);
     const header_html =`
         <div id="popup-container-header"> 
@@ -114,7 +109,6 @@ function editThisTag(tag,elemId){
         let row_html;
         const colorRegex = new RegExp('color','i');
         if(colorRegex.test(options[i])){
-            console.log('COLOR',getOriginalValue(featureJSPropertyDisplayMapping[options[i]],elemId));
             row_html =`<tr>
                     <td><strong>${optionsDisplayMapping[options[i]]} :</strong></td>
                     <td><input type="color" name=${featureJSPropertyDisplayMapping[options[i]]} value='`+ rgbToHex(getOriginalValue(featureJSPropertyDisplayMapping[options[i]],elemId)) +`'></td>
@@ -234,7 +228,8 @@ const tagEditableFeaturesMapping = {
     input : ['placeholderText','width','height','borderRadius'],
     button : ['text','backgroundColor','textColor','fontSize','borderRadius','width','height'],
     img : ['width','height'],
-    div : ['backgroundColor']
+    div : ['backgroundColor'],
+    span : ['textColor','fontSize']
 }
 
 
