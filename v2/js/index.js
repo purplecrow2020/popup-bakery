@@ -110,13 +110,13 @@ function editThisTag(tag,elemId){
         const colorRegex = new RegExp('color','i');
         if(colorRegex.test(options[i])){
             row_html =`<tr>
-                    <td><strong>${optionsDisplayMapping[options[i]]} :</strong></td>
+                    <td><span style="font-size:14px;"><strong>${optionsDisplayMapping[options[i]]} :</strong></span></td>
                     <td><input type="color" name=${featureJSPropertyDisplayMapping[options[i]]} value='`+ rgbToHex(getOriginalValue(featureJSPropertyDisplayMapping[options[i]],elemId)) +`'></td>
                 </tr>
             `;
         }else{
             row_html =`<tr>
-                        <td><strong>${optionsDisplayMapping[options[i]]} :</strong></td>
+                        <td><span style="font-size:14px;"><strong>${optionsDisplayMapping[options[i]]} :</strong></span></td>
                         <td><input type="text" name=${featureJSPropertyDisplayMapping[options[i]]} value='`+ getOriginalValue(featureJSPropertyDisplayMapping[options[i]],elemId) +`'></td>
                     </tr>
             `;
@@ -169,6 +169,7 @@ function getSupportedEditableProperties(tag){
 
 
 function getOriginalValue(x,y){
+    console.log(x,y);
     if(document.querySelector(`#${y}`).style[x] != null) {
         return document.querySelector(`#${y}`).style[x];
     }
