@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href="./css/main_new.css">
+        <link rel="stylesheet" href="./css/main.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -8,13 +8,15 @@
     </head>
 
     <body>
-
+        <div id="header">
+            <p> POP-UP BAKERY <img src="https://png.pngtree.com/png-vector/20190214/ourlarge/pngtree-vector-cake-icon-png-image_515125.jpg"></p>
+        </div>
         <div id="workspace">
             <div id="element-viewer">
             </div>
             <div id="popup-container">
                 <div id="popup-container-header"> 
-                    POPUP
+                    POPUP - VIEWER
                 </div>
             
                 <div id="popup-html-container" style="padding:20px;">
@@ -34,24 +36,27 @@
                 </div>
                 <a href="#" id="save-button" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>SAVE</span></a>
                 <a href="#" id="reset-button" class="fancy-button pop-onhover bg-gradient3" onclick="resetHtml()"><span><i class="fa fa-pencil"></i>RESET</span></a>
-
             </div>
-            <div id="editor-panel"></div>
+            <div id="editor-panel">
+                <div id="popup-container-header"> 
+                    EDIT - PROPERTIES
+                </div>
+            </div>
 
-            
         </div>
-        
+
 
         <div id="modal">
         
             <div id="modal-content">
                 <div id="cross"><span class="fa fa-times"></span></div>
-                <div id="data">
-                    <p id="script-data">
-                        hello everyone
+                <div id="data" style="margin-top:40px;font-size:20px;">
+                    <strong>Congrats</strong> , Popup Design Saved , use the JS to import in your website
+                    <p id="script-data" style="box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;padding:10px;border-radius:10px;background:white;">
+                       wait its loading.........
                     </p>
-                    <p id="copy-data" onclick="copyScriptData();">
-                        <span class="fa fa-copy"></span>
+                    <p id="copy-data" style="float:right;" onclick="copyScriptData();">
+                        COPY <span class="fa fa-copy" style="font-size: 30px;"></span>
                     </p>
                 </div>
             </div>
@@ -59,7 +64,7 @@
         </div>
 
         
-        <script src="./js/index_new.js"></script>
+        <script src="./js/index.js"></script>
         <script>
              $(document).ready(function(){
                 localStorage.setItem('initHtml',JSON.stringify(getHtml()));
@@ -83,10 +88,27 @@
 
                 $('#save-button').click(function(){
                     $('#modal').fadeIn('fast');
+                    let html = getHtml();
+                    let data = '{"popup_code": "ZwewsDr","popup_html":'+JSON.stringify(html)+'}';
+                    $.ajax({
+                        url: 'http://128.199.19.190:8001/api/store-html',
+                        contentType: 'application/json',
+                        dataType: 'json',
+                        data: data,
+                        type: 'POST',
+                        success: function(data, textStatus, jqXHR){
+                            updateScriptData(data.id);
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown){
+                                alert('false');
+                            }
+                    });
                 });
              });
+            
+             document.getElementById("data").addEventListener('click',function(e){
+                e.stopPropagation();
+            });
         </script>
     </body>
 </html>
-
-<
