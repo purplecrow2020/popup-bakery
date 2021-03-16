@@ -30,11 +30,8 @@ function selectThisElementForEditView(key){
     console.log(key);
     let editElements = document.querySelectorAll('.edit-view-elements');
     let els = document.getElementById("popup-html-container").querySelector("[key='"+key+"']");
-    console.log(els);
     let tag = els.tagName.toLowerCase();
-    // console.log(tag);
     let id = els.getAttribute('id');
-    console.log(tag,id);
     for(let element of editElements){
         element.classList.remove('active-edit-element');
         if(element.getAttribute('key') == key){
@@ -104,10 +101,10 @@ function editThisTag(tag,elemId){
     let table_html =`
                 <tr>
                     <th>
-                        feature
+                      
                     </th>
                     <th>
-                        value
+                    
                     </th>
                 </tr>
             `;
@@ -132,8 +129,6 @@ function editThisTag(tag,elemId){
         table_html += row_html;
     }
 
-
-    // <a class="fancy-button pop-onhover bg-gradient3" onClick="previewPrefrences('`+ elemId+`')">preview</a>
 
     const table_button_html = `
     <tr>
