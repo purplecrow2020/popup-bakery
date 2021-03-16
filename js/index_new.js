@@ -19,10 +19,12 @@ for (let popupElement of popupElements) {
         if(editableTags.includes(e.target.tagName.toLowerCase())){
             e.target.contentEditable = true;
         }
-    })
-
-    
+    });    
 }   
+
+document.getElementById('stars').addEventListener('click',function(){
+    console.log('pok');
+},false);
 
 generateEditElementsViewer();
 

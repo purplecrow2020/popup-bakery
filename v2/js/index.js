@@ -7,6 +7,7 @@ for (let popupElement of popupElements) {
         elementCategories.push(popupElement.getAttribute('category')); 
     }
     popupElement.addEventListener('click',function(e){
+        console.log('helllllll');
         e.stopPropagation();
         console.log(e.target.getAttribute('key'));
         editThisTag(e.target.tagName.toLowerCase(),e.target.getAttribute('id'));
@@ -230,7 +231,7 @@ function rgbToHex(rgb) {
 
 const tagEditableFeaturesMapping = {
     p : ['textColor','text','fontSize'],
-    input : ['size','placeholderText','width','height','borderRadius'],
+    input : ['placeholderText','width','height','borderRadius'],
     button : ['text','backgroundColor','textColor','fontSize','borderRadius','width','height'],
     img : ['width','height'],
     div : ['backgroundColor']
