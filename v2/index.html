@@ -79,10 +79,15 @@
 
                 $('#modal').click(function(){
                     $('#modal').fadeOut('fast');
+                    document.getElementById('script-data').innerText ='wait its loading.........';
                 });
 
                 $('#cross').click(function(){
+                    console.log('assdasdasd');
                     $('#modal').fadeOut('fast');
+                    console.log(document.getElementById('script-data'));
+                    document.getElementById('script-data').innerText ='wait its loading.........';
+                    $('#script-data').text('ssdsd');
                 });
 
                 $('#save-button').click(function(){

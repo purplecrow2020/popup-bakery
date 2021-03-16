@@ -189,8 +189,9 @@ function getHtml(){
 
 
 function resetHtml(){
-    let initHtml = localStorage.getItem('initHtml');
-    document.querySelector('#popup-html-container').innerHTML = JSON.parse(initHtml);
+    location.reload();
+    // let initHtml = localStorage.getItem('initHtml');
+    // document.querySelector('#popup-html-container').innerHTML = JSON.parse(initHtml);
 }
 
 function copyScriptData(){
