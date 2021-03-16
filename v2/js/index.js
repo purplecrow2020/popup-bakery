@@ -108,9 +108,15 @@ function editThisTag(tag,elemId){
     for(let i=0;i<options.length;i++){
         let row_html;
         const colorRegex = new RegExp('color','i');
+        let displayText;
+        if(tag ==='span' && options[i] =='textColor'){
+            displayText = 'BACKGROUND - COLOR';
+        }else{
+            displayText = optionsDisplayMapping[options[i]];
+        }
         if(colorRegex.test(options[i])){
             row_html =`<tr>
-                    <td><span style="font-size:14px;"><strong>${optionsDisplayMapping[options[i]]} :</strong></span></td>
+                    <td><span style="font-size:14px;"><strong>${displayText} :</strong></span></td>
                     <td><input type="color" name=${featureJSPropertyDisplayMapping[options[i]]} value='`+ rgbToHex(getOriginalValue(featureJSPropertyDisplayMapping[options[i]],elemId)) +`'></td>
                 </tr>
             `;
@@ -202,7 +208,7 @@ function copyScriptData(){
 }
 
 function updateScriptData(id){
-    let x = `<script type="text/javascript" id="poptin-popup" popup-code="`+id+`" src="https://firebasestorage.googleapis.com/v0/b/fir-login-b2ff3.appspot.com/o/library.js?alt=media&token=69d9b678-1a95-44ee-af66-4f3bdc53710c"></script>`;
+    let x = `<script type="text/javascript" id="poptin-popup" popup-code="`+id+`" src="https://firebasestorage.googleapis.com/v0/b/fir-login-b2ff3.appspot.com/o/library.js?alt=media&token=fa99bda7-9465-48ef-8e83-1bc8946cd63e"></script>`;
     document.querySelector('#script-data').innerText=x;
 }
 
