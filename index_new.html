@@ -11,52 +11,82 @@
 
         <div id="workspace">
             <div id="element-viewer">
-               <div class="collapsible"></div>
-               <div class="content"></div>
             </div>
             <div id="popup-container">
                 <div id="popup-container-header"> 
-                    POPUP - PREVIEWER
+                    POPUP
                 </div>
             
                 <div id="popup-html-container" style="padding:20px;">
-                    
-                    
-                    
-                    <div id="popup" style="background-color:rgb(216,103,96);border-radius:100%;width:500px;height:500px;text-align:center;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px rgb(216,103,96) ,inset 0px 0px 0px 12px white;margin: 0px auto;">
+                                
+                    <div id="popup" class="popup-element" category="basic settings" key="popup" style="background-color:rgb(216,103,96);border-radius:100%;width:500px;height:500px;text-align:center;justify-content: center;flex-direction: column;display : flex;box-shadow:inset 0px 0px 0px 10px rgb(216,103,96) ,inset 0px 0px 0px 12px white;margin: 0px auto;">
                         <div id="stars" display="inline-block;">
-                            <span key="star2" class="fa fa-star" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
-                            <span key="star1" class="fa fa-star" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
-                            <span key="star3" class="fa fa-star" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star2" class="fa fa-star popup-element" category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star1" class="fa fa-star popup-element" category="image elements" style="font-size:40px;transform:translateY(-10px);margin:0px 5px;color:rgb(187,67,60)"></span>
+                            <span key="star3" class="fa fa-star popup-element"  category="image elements" style="font-size:20px;margin:0px 5px;color:rgb(187,67,60)"></span>
                         </div>
-                        <p id="popup-heading" style="margin:20px 0px;color:white;font-weight:700;" key="heading" draggable="true">Bakery</p>
-                        <input id="popup-input" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
-                        <button id="popup-submit" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:white;font-weight:700;" draggable="true">Subscribe Me</button>
-                        <p id="popup-info" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
+                        <p id="popup-heading" class="popup-element" category="text elements" style="margin:20px 0px;color:white;font-weight:700;" key="heading" draggable="true">Bakery</p>
+                        <input id="popup-input" class="popup-element" category="input elements" key="input" type="text" placeholder="Email :" style="outline-width: 0;width: 200px;margin: 20px auto;height:40px;border:1px solid transparent;border-radius: 10px;padding:10px;" draggable="true">
+                        <button id="popup-submit"  class="popup-element" category="button elements" key="submit" style="border:none;width: 200px;margin: 0px auto;height:40px;border:1px solid transparent;;border-radius: 10px;padding:10px;background-color:black;color:white;font-weight:700;" draggable="true">Subscribe Me</button>
+                        <p id="popup-info" class="popup-element" category="text elements" key="info"  draggable="true">Do Subscribe, to get latest updates</p>
                     </div>
-
-
-                    <a href="#" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>SAVE</span></a>
-
+    
                 </div>
+                <a href="#" id="save-button" class="fancy-button pop-onhover bg-gradient3"><span><i class="fa fa-pencil"></i>SAVE</span></a>
+                <a href="#" id="reset-button" class="fancy-button pop-onhover bg-gradient3" onclick="resetHtml()"><span><i class="fa fa-pencil"></i>RESET</span></a>
 
             </div>
             <div id="editor-panel"></div>
+
+            
         </div>
+        
+
+        <div id="modal">
+        
+            <div id="modal-content">
+                <div id="cross"><span class="fa fa-times"></span></div>
+                <div id="data">
+                    <p id="script-data">
+                        hello everyone
+                    </p>
+                    <p id="copy-data" onclick="copyScriptData();">
+                        <span class="fa fa-copy"></span>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+        
         <script src="./js/index_new.js"></script>
         <script>
              $(document).ready(function(){
+                localStorage.setItem('initHtml',JSON.stringify(getHtml()));
                 $('input[type=text]').draggable({cancel:false,});
                 $('input[type=color]').draggable({cancel:false,});
                 $('button').draggable({cancel:false,});
                 $('img').draggable({cancel:false,});
                 $('span').draggable({cancel:false,});
-
-
                 $("p").draggable({});
                 $("input").draggable({});
                 $("button").draggable({});
+
+
+                $('#modal').click(function(){
+                    $('#modal').fadeOut('fast');
+                });
+
+                $('#cross').click(function(){
+                    $('#modal').fadeOut('fast');
+                });
+
+                $('#save-button').click(function(){
+                    $('#modal').fadeIn('fast');
+                });
              });
         </script>
     </body>
 </html>
+
+<
